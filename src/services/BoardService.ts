@@ -49,15 +49,15 @@ const createBoard = async(boardCreateDto: BoardCreateDto): Promise<PostBaseRespo
         });
         
         if (boardCreateDto.scoreType == "note1"){
-            board.scoreImg = "https://user-images.githubusercontent.com/59546818/169656548-e95e16d8-88cb-4d31-a726-de7a1df711cf.png";
+            board.scoreImg = "https://user-images.githubusercontent.com/82046935/169669801-f870362f-b345-4be0-9c56-b3b909e96378.png";
         } else if (boardCreateDto.scoreType == "note2"){
-            board.scoreImg = "https://user-images.githubusercontent.com/59546818/169656548-e95e16d8-88cb-4d31-a726-de7a1df711cf.png";
+            board.scoreImg = "https://user-images.githubusercontent.com/82046935/169669874-0b36fe7e-f766-4000-9c7e-c7e722e44595.png";
         } else if (boardCreateDto.scoreType == "note3"){
-            board.scoreImg = "https://user-images.githubusercontent.com/59546818/169656548-e95e16d8-88cb-4d31-a726-de7a1df711cf.png";
+            board.scoreImg = "https://user-images.githubusercontent.com/82046935/169669823-59156faa-076b-4350-a748-f20b5ab57462.png";
         } else if (boardCreateDto.scoreType == "note4"){
-            board.scoreImg = "https://user-images.githubusercontent.com/59546818/169656548-e95e16d8-88cb-4d31-a726-de7a1df711cf.png";
+            board.scoreImg = "https://user-images.githubusercontent.com/82046935/169669835-ae12dbd5-bde1-4b01-b015-ca3f2851d508.png";
         } else if (boardCreateDto.scoreType == "note5"){
-            board.scoreImg = "https://user-images.githubusercontent.com/59546818/169656548-e95e16d8-88cb-4d31-a726-de7a1df711cf.png";
+            board.scoreImg = "https://user-images.githubusercontent.com/82046935/169669865-a827db80-f6a8-45a7-899c-c66debab1acf.png";
         } 
 
         await board.save();
