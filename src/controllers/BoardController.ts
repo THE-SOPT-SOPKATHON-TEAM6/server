@@ -6,6 +6,7 @@ import statusCode from "../modules/statusCode";
 import util from "../modules/util";
 import BoardService from "../services/BoardService";
 import { PostBaseResponseDto } from "../interfaces/common/PostBaseResponseDto";
+import { validationResult } from "express-validator";
 
 /**
  *  @route GET /boards
@@ -25,13 +26,28 @@ const getBoard = async (req: Request, res: Response) => {
         }
  }
 
+/**
+ *  @route POST /board
+ *  @desc Post Board
+ *  @access Public
+ */
+
 const createBoard = async (req: Request, res: Response) => {
+    const error = validationResult(req);
+    if(!error.isEmpty()){
+        return res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST,message.NULL_VALUE));
+    }
 
     const boardCreateDto: BoardCreateDto = req.body;
 
     try {
 
-        const data: PostBaseResponseDto = await BoardService.createBoard(boardCreateDto);
+        const data: PostBaseResponseDto | number = await BoardService.createBoard(boardCreateDto);
+
+        if (data == 400) {
+            res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST, message.BAD_REQUEST));
+        }
+
         res.status(statusCode.CREATED).send(util.success(statusCode.CREATED, message.CREATE_BOARD_SUCCESS, data));
         
     } catch (error) {
