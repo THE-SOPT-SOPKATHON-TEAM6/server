@@ -3,6 +3,8 @@ import BoardController from "../controllers";
 
 const router = Router();
 
-router.post("/", BoardController.createBoard);
+router.post("/board", BoardController.createBoard);
+
+router.get("/boards",BoardController.getBoard);
 
 export default router;

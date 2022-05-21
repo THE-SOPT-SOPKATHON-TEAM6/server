@@ -1,5 +1,31 @@
+import Board from "../models/board"
 import { BoardCreateDto } from "../interfaces/BoardCreateDto";
-import Board from "../models/Board";
+
+
+const getBoard = async() => {
+ try {
+     const board = await Board.find({
+         writer: "6288fe61a488925440fe8f4b"
+     })
+
+     const data = await Promise.all(board.map((board: any) => {
+
+        const result = {
+            content: board.content,
+            scoreImg: board.scoreImg,
+            scoreType: board.scoreType,
+            createdAt: board.createdAt
+        };
+        return result;
+     }));
+
+     return data;
+
+ } catch (error) {
+     console.log(error);
+     throw error;
+ }   
+}
 
 const createBoard = async(boardCreateDto: BoardCreateDto) => {
 
@@ -41,4 +67,5 @@ const createBoard = async(boardCreateDto: BoardCreateDto) => {
 
 export default {
     createBoard,
+    getBoard
 }
