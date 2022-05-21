@@ -37,7 +37,7 @@ const createBoard = async(boardCreateDto: BoardCreateDto): Promise<PostBaseRespo
         const count = await Board.countDocuments({ writerId : "6288fe61a488925440fe8f4b" }) + 1;
 
         if (count >= 22) {
-            return 400;
+            return 204;
         }
         
         const board = new Board({
