@@ -44,8 +44,8 @@ const createBoard = async (req: Request, res: Response) => {
 
         const data: PostBaseResponseDto | number = await BoardService.createBoard(boardCreateDto);
 
-        if (data == 400) {
-            res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST, message.BAD_REQUEST));
+        if (data == 204) {
+            res.status(statusCode.NO_CONTENT).send(util.fail(statusCode.NO_CONTENT, message.NO_CONTENT));
         }
 
         res.status(statusCode.CREATED).send(util.success(statusCode.CREATED, message.CREATE_BOARD_SUCCESS, data));
