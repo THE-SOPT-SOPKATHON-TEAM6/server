@@ -201,13 +201,75 @@ Promise함수의 사용은 지양하고 async, await를 사용하도록 해요.
 
 다만 로직을 짜는 데 있어 promise를 불가피하게 사용할 경우, 주석으로 표시하고 commit에 그 이유를 작성해요.
 
-# 2️⃣ API 명세서 초안 작성
+<br/>
+
+# 2차 
+
+# Collection
+
+### User
+   name: stirng;
+   
+### Board
+   content: string; <br/>
+   scoreImg: string; <br/>
+   scoreType: string; <br/>
+   createdAt: string; <br/>               
+   writer: mongoose.Types.ObjectId; <br/>
+   countNum: number; <br/>
+
+<br/>
+
+# package.json
+
+```{
+  "name": "node-typescript-init",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc && node dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^17.0.25",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.17.3",
+    "express-validator": "^6.14.0",
+    "mongoose": "^6.3.1"
+  }
+}
+```
+<br/>
+
+# Sever Architecture
+### Controller
+   BoardController
+   Request 객체에서 request param 가공
+   service에 가공한 데이터 전달
+   service로부터 받은 데이터 및 상태 코드, 상태 메시지를 response 객체로 클라이언트에게 전달
+   
+### Service
+   BoardService
+   controller에서 받은 데이터로 db에 접근, 반환값을 받아옴
+   비즈니스 로직 수행
+   
+### Mongoose
+   데이터 관리 및 저장
+
+<br/>
+
+# API 명세서 
 
 [API 명세서](https://www.notion.so/API-a5a316b0e0544bb5b0b460f451eede08)
 
-### 2차 과제
-
-- GitHub 링크 제출
-    - README 내용 추가
-    - API 명세서
-    - 프로젝트
+<br/>
