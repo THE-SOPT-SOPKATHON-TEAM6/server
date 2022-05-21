@@ -6,4 +6,6 @@ export interface BoardInfo {
     scoreType: string;
     createdAt: string;                
     writer: mongoose.Types.ObjectId;
+    countNum: number;
+
 }

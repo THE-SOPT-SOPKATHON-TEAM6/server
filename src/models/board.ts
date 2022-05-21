@@ -22,6 +22,9 @@ const BoardSchema = new mongoose.Schema({
         //required: true,
         ref: "User",
     },
+    countNum: {
+        type: Number
+    }
 });
 
 export default mongoose.model<BoardInfo & mongoose.Document>("Board", BoardSchema);
