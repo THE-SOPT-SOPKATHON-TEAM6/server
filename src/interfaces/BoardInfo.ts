@@ -4,6 +4,6 @@ export interface BoardInfo {
     content: string;
     scoreImg: string;
     scoreType: string;
-    createdAt: Date;
+    createdAt: string;                
     writer: mongoose.Types.ObjectId;
 }
