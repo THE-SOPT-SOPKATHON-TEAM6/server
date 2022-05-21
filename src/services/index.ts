@@ -1,4 +1,3 @@
-//service index file
-export {
+import BoardService from "./BoardService";
 
-}
+export default BoardService;
