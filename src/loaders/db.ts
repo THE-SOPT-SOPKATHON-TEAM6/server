@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import config from "../config";
-import User from "../models/User"
+import user from "../models/user"
 
 const connectDB = async () => {
     try {
@@ -10,7 +10,7 @@ const connectDB = async () => {
 
         console.log("Mongoose Connected ...");
 
-        User.createCollection().then(function(collection){
+        user.createCollection().then(function(collection){
             console.log("user collection is created!");
             
         })
