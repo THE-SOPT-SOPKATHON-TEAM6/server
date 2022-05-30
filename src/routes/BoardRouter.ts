@@ -1,6 +1,6 @@
 import { Router } from "express";
 import BoardController from "../controllers";
-import { body } from "express-validator/check";
+const { body } = require("express-validator");
 
 const router = Router();
 
